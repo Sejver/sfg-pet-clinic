@@ -7,7 +7,9 @@ public class Vet extends Person {
     private Set<Speciality> specialies;
 
     public Set<Speciality> getSpecialies() {
+
         return specialies;
+
     }
 
     public void setSpecialies(Set<Speciality> specialies) {
