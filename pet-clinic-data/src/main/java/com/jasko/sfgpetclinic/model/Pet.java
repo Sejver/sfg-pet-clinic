@@ -1,13 +1,25 @@
 package com.jasko.sfgpetclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
 
+    @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id")
     private PetType petType;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
-    private LocalDate birthdate;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     public String getName() {
         return name;
@@ -34,10 +46,10 @@ public class Pet extends BaseEntity {
     }
 
     public LocalDate getBirthdate() {
-        return birthdate;
+        return birthDate;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthdate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 }
